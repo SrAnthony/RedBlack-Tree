@@ -85,7 +85,6 @@ avl_node* insertion_case_2(avl_node* node) {
 
 avl_node* insertion_case_1(avl_node* node) {
   printf("[INFO] Insertion Case 1\n");
-  printf("[INFO] Node %d root %d\n", node->data, node->root ? node->root->data : 0);
   if(node->root == NULL){
     node->color = 0; // Black
     node->position = 3;
@@ -102,7 +101,6 @@ avl_node* create_node(){
   scanf("%d", &newNode->data);
 
   printf("[INFO] Created node: %d\n", newNode->data);
-
   return newNode;
 }
 
@@ -119,7 +117,6 @@ avl_node* add_node(avl_node * node, avl_node* toAdd){
 						toAdd->position = 0; // Position 0 = right, 1 = left
 						toAdd->root = node; // node is toAdd's father
 						printf("[INFO] Added on %d's right side\n", node->data);
-						calc_height_root(node);
             insertion_case_1(toAdd);
 				}
 				else {
@@ -133,7 +130,6 @@ avl_node* add_node(avl_node * node, avl_node* toAdd){
 						toAdd->position = 1; // Position 0 = right, 1 = left
 						toAdd->root = node; // node is toAdd's father
 						printf("[INFO] Added on %d's left side\n", node->data);
-						calc_height_root(node);
             insertion_case_1(toAdd);
 				}
 				else {
@@ -151,7 +147,7 @@ int main(void) {
 				printf("\n\t|------------------------------------Level------------------------------------|\n");
 				printf("\t|--0--| |--1--| |--2--| |--3--| |--4--| |--5--| |--6--| |--7--| |--8--| |--9--|\n");
 				print_tree(root, 0);
-				printf("\n\n----------------\nChoose a option:\n");
+				printf("\n\n----------------\nChoose an option:\n");
 				printf("1. Add a new node\n");
         printf("0. Exit\n");
 				scanf("%d", &option);

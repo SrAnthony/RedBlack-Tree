@@ -13,11 +13,10 @@ void padding(int n){
 }
 void print_node(avl_node *node, int level) {
   int color = node->color == 1 ? 31 : 0; // 31 is the red code, 0 is reset (terminal default)
-  int height = node->r_height > node->l_height ? node->r_height : node->l_height;
 
-  printf("(\e[%dm\e[1m%d\e[0m|h:%d)", color, node->data, height);
+  printf("(\e[%dm\e[1m%03d\e[0m)", color, node->data);
 
-  int dash = 80 - (level * 8); // 80 is the total available space, level * 8 is the tab size
+  int dash = 84 - (level * 8); // 80 is the total available space, level * 8 is the tab size
   char str[12];
   sprintf(str, "%d", node->data); // Int converted into string
   for(int i=0; str[i] != '\0'; i++) dash--; // For each caracter on string remove 1 from dash
@@ -28,7 +27,7 @@ void print_node(avl_node *node, int level) {
 void print_tree (avl_node *root, int level){
 
   if ( root == NULL ) {
-    padding (level+1);
+    padding(level + 1);
     puts("~"); // Black ~
   }
   else {

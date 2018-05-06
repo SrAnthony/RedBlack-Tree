@@ -8,8 +8,8 @@
 typedef struct avl_node {
     // position = where the node is localized
 		// 0 - right, 1 - left, 3 - is root
-		int data, l_height, r_height, position;
-		int color; // 0 Black, 1 Red
+		// Color = 0 Black, 1 Red
+		int data, position, color;
 		struct avl_node *right;
 		struct avl_node *left;
 		struct avl_node *root;
